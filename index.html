@@ -1549,7 +1549,8 @@
         <button type="button" onclick="selectTutorialStep('jasa')" id="tutTab-jasa" class="tut-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0">2. Fotokopi & Print</button>
         <button type="button" onclick="selectTutorialStep('nota')" id="tutTab-nota" class="tut-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0">3. Nota, Diskon & Kasbon</button>
         <button type="button" onclick="selectTutorialStep('opname')" id="tutTab-opname" class="tut-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0">4. Stok Opname & Cetak</button>
-        <button type="button" onclick="selectTutorialStep('admin')" id="tutTab-admin" class="tut-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0">5. Katalog, JPG & Profil</button>
+        <button type="button" onclick="selectTutorialStep('etalase')" id="tutTab-etalase" class="tut-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0">5. Etalase Konsumen HTML</button>
+        <button type="button" onclick="selectTutorialStep('admin')" id="tutTab-admin" class="tut-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0">6. Katalog, JPG & Profil</button>
       </div>
 
       <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-700">
@@ -1607,20 +1608,36 @@
               <span class="w-6 h-6 rounded-lg bg-purple-600 text-white text-xs flex items-center justify-center">4</span>
               Stok Opname Terintegrasi & Cetak Berita Acara
             </h4>
-            <button type="button" onclick="closeTutorialModal(); switchTab('produk'); setProductSubView('opname');" class="text-[11px] font-bold text-purple-700 hover:underline cursor-pointer">Buka Stok Opname &rarr;</button>
+            <button type="button" onclick="closeTutorialModal(); switchTab('opname');" class="text-[11px] font-bold text-purple-700 hover:underline cursor-pointer">Buka Stok Opname &rarr;</button>
           </div>
           <ul class="list-disc pl-5 space-y-1 text-xs text-slate-700 leading-relaxed">
-            <li><strong>Hitung Fisik vs Sistem:</strong> Buka menu <em>"Produk &amp; Stok"</em> &rarr; klik tombol kuning <em>"Stok Opname"</em>. Masukkan jumlah fisik barang di rak dan isi keterangan alasan (rusak, hilang, bonus supplier, dll).</li>
+            <li><strong>Hitung Fisik vs Sistem:</strong> Klik menu <em>"Stok Opname"</em> di bilah navigasi atas. Masukkan jumlah fisik barang di rak dan isi keterangan alasan (rusak, hilang, bonus supplier, dll).</li>
             <li><strong>Sinkronisasi Otomatis:</strong> Klik <em>"Simpan &amp; Sinkronkan Stok Opname"</em> agar stok di Kasir, Database Produk, dan Katalog Harga langsung diperbarui otomatis.</li>
             <li><strong>Cetak &amp; Export Opname:</strong> Gunakan tombol <em>"Cetak Stok Opname"</em> untuk mencetak lembar kerja audit fisik lengkap dengan kolom tanda tangan, atau cetak ulang <em>"Berita Acara"</em> dari riwayat opname.</li>
           </ul>
         </div>
 
-        <!-- Langkah 5: Database Produk, Ikon JPG, Katalog CSV & Profil -->
+        <!-- Langkah 5: Etalase Belanja Online Konsumen (File HTML & WhatsApp) -->
+        <div data-tut-group="etalase" class="tut-card bg-teal-50/70 border border-teal-200 rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <h4 class="font-extrabold text-teal-950 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-teal-600 text-white text-xs flex items-center justify-center">5</span>
+              Etalase Belanja Online Konsumen & Kirim File HTML
+            </h4>
+            <button type="button" onclick="closeTutorialModal(); openCustomerShopPreview();" class="text-[11px] font-bold text-teal-700 hover:underline cursor-pointer">Lihat Etalase &rarr;</button>
+          </div>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-slate-700 leading-relaxed">
+            <li><strong>Kirim Daftar Etalase File HTML:</strong> Di halaman <em>"Kasir"</em> maupun tab <em>"Katalog Harga"</em>, klik tombol kuning <strong>"Kirim Daftar Etalase ke Konsumen File HTML"</strong>. Di HP Android langsung muncul menu berbagi dokumen <code>.html</code> ke WhatsApp pelanggan/grup santri (dan otomatis terunduh jika dibuka di komputer).</li>
+            <li><strong>Pemesanan Langsung ke WhatsApp Toko:</strong> Konsumen cukup membuka file etalase HTML tersebut di browser HP, memilih barang ATK atau jasa fotokopi/print, mengisi nama &amp; catatan, lalu klik <strong>"Kirim Pesanan ke WhatsApp Toko"</strong>.</li>
+            <li><strong>Pratinjau Mode Konsumen:</strong> Klik tombol hijau <em>"Link Belanja"</em> di menu atas untuk melihat simulasi tampilan konsumen (klik <em>"Mode Kasir"</em> di pojok kanan atas untuk kembali ke kasir).</li>
+          </ul>
+        </div>
+
+        <!-- Langkah 6: Database Produk, Ikon JPG, Katalog CSV & Profil -->
         <div data-tut-group="admin" class="tut-card bg-amber-50/70 border border-amber-200 rounded-2xl p-4 space-y-2">
           <div class="flex items-center justify-between">
             <h4 class="font-extrabold text-amber-950 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 text-xs flex items-center justify-center">5</span>
+              <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 text-xs flex items-center justify-center">6</span>
               Ganti Ikon ke JPG, Katalog CSV & Profil Toko
             </h4>
             <button type="button" onclick="closeTutorialModal(); switchTab('katalog');" class="text-[11px] font-bold text-amber-700 hover:underline cursor-pointer">Buka Katalog &rarr;</button>
@@ -1628,7 +1645,7 @@
           <ul class="list-disc pl-5 space-y-1 text-xs text-slate-700 leading-relaxed">
             <li><strong>Ganti Ikon Menjadi JPG:</strong> Di menu <em>"Produk &amp; Stok"</em>, klik <em>"Ganti Ikon JPG"</em> pada tiap barang untuk mengunggah foto asli format JPG, atau klik <em>"Ganti Semua Ikon ke JPG"</em> untuk konversi massal.</li>
             <li><strong>Katalog Harga &amp; Import CSV:</strong> Di menu <em>"Katalog Harga"</em>, Anda dapat mencetak brosur harga toko, membagikan daftar harga via WhatsApp, <em>"Download Template Katalog"</em> (Excel/CSV), dan <em>"Upload Katalog Baru"</em>.</li>
-            <li><strong>Identitas, Logo &amp; Email Toko:</strong> Ubah logo toko, alamat, nomor WhatsApp, dan email usaha melalui menu <em>"Profil Toko"</em>.</li>
+            <li><strong>Identitas, Logo, WA &amp; Email Toko:</strong> Atur logo toko, alamat, nomor WhatsApp tujuan pesanan online, serta email usaha melalui menu <em>"Profil Toko"</em>.</li>
           </ul>
         </div>
 
@@ -1637,7 +1654,7 @@
           <i class="fa-solid fa-mobile-screen-button text-amber-400 text-lg mt-0.5"></i>
           <div>
             <div class="font-bold text-white">Tips Penggunaan di HP Android &amp; Komputer:</div>
-            <p class="text-[11px] text-slate-300 mt-0.5 leading-relaxed">Di browser Chrome HP Android, tekan titik tiga di pojok kanan atas lalu pilih <strong>"Tambahkan ke Layar Utama" (Add to Home Screen)</strong> agar aplikasi kasir <strong>ARJUNA FOTOKOPI</strong> tampil seperti aplikasi Android layar penuh. Semua data tersimpan otomatis di perangkat Anda.</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 leading-relaxed">Bilah informasi paling atas menampilkan <strong>Tanggal Masehi</strong>, <strong>Kalender Hijriah</strong>, <strong>Jam Digital Real-Time (WIB)</strong>, dan info pengembang. Di Chrome HP Android, pilih <strong>"Tambahkan ke Layar Utama" (Add to Home Screen)</strong> agar aplikasi kasir <strong>ARJUNA FOTOKOPI</strong> berjalan layar penuh seperti aplikasi Android. Semua data tersimpan otomatis di perangkat Anda.</p>
           </div>
         </div>
       </div>
